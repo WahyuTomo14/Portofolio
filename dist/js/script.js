@@ -52,3 +52,12 @@ if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.match
 } else {
   darkToggle.checked = false;
 }
+
+window.addEventListener('scroll', function() {
+  const header = document.querySelector('header');
+  if (window.scrollY > 50) {
+    header.classList.add('shadow-lg');
+  } else {
+    header.classList.remove('shadow-lg');
+  }
+});

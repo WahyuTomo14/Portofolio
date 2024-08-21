@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['index.html'],
+  content: ['index.html', 'projects/heartdeseas.html'],
   darkMode: 'class',
   theme: {
     container: {
@@ -8,7 +8,7 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: '#14b8a6',
+        primary: '#d97706',
         secondary: '#64748b',
         dark: '#0f172a',
       },
