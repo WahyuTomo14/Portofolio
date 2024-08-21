@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heart Deseases</title>
+    <title>Final Project</title>
     <link href="../dist/css/final.css" rel="stylesheet">
 </head>
 <body>
@@ -49,22 +49,28 @@
         <section id="about" class="pt-24 pb-18 dark:bg-dark">
             <div class="container">
                 <div class="flex flex-wrap">
-                <h1 class="pb-10 text-4xl font-bold text-orange-600">Heart Disease Analysis</h1>
+                <h1 class="pb-10 text-4xl font-bold text-orange-600">Penerapan Machine Learning dalam Menentukan Segmentasi Kategori Produk dan Prediksi Perubahan Harga pada Supermarket</h1>
                 <br>
                 <br>
-                <p>Project ini merupakan tugas individu dari [MSIB]DS&AI course dari 
+                <p>Project ini merupakan tugas Final Project dari [MSIB]DS&AI course dari 
                     <span class=" text-primary hover:underline">Startup Campus</span>
                 </p>
                 <br>
                 <br>
                 <p>Dataset yang di gunakan pada analisi ini berasal dari 
-                    <a href="https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset/" target="_blank"> 
+                    <a href="https://drive.google.com/drive/folders/12UOIzfEU0pI8WdHnneOoaP17LTkIiHpV?usp=sharing" target="_blank"> 
                         <span class="font-bold text-orange-600 hover:underline">
-                            Heart Disease Dataset on Kaggle
+                            Supermarket Dataset
                         </span>
                     </a>
                 </p>
                 <br>
+                <br>
+                <p>
+                    <strong>
+                        DISCLAIMER
+                    </strong>Hasil tugas akhir hanya sekedar sarana pembelajaran dan tidak menampilkan nilai sebenarnya. Ini tidak boleh digunakan sebagai rekomendasi secara mentah
+                </p>
                 <br>
                 <p>Analisis yang dilakukan mencakup berbagai model pembelajaran mesin dan teknik statistik untuk memperoleh wawasan dari Dataset, Berikut poin-poin utamanya:</p>
 
@@ -126,12 +132,25 @@
                         </div>
             </div>
         </section>
+        
+        <div class="carousel-container">
+            {% for i in (1..35) %}
+            <div class="carousel-slide {% if i == 1 %}active{% endif %}">
+                <img src="{{ '/images/15B/Slide' | append: i | append: '.PNG' | relative_url }}" alt="Slide {{ i }}">
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="carousel-controls">
+            <button id="prevBtn" onclick="navigateCarousel(-1)">Prev</button>
+            <button id="nextBtn" onclick="navigateCarousel(1)">Next</button>
+        </div>
 
         <section>
             <div class="container">
                 <div class="flex flex-wrap">
                         <div class="pb-5">
-                            <p>Anda dapat melihat dan berinteraksi dengan analisis lengkap di sini <a href="https://colab.research.google.com/drive/1ti-hjiTsy9o5VlVDVc-ZTXp_b5bH5hTy?usp=sharing">
+                            <p>Anda dapat melihat dan berinteraksi dengan analisis lengkap di sini <a href="https://drive.google.com/drive/folders/12eE9o75EGb8Px0cJFSqz1-CK0kB7bvOj?usp=sharing">
                                 <span class="text-primary hover:underline">
                                     Google Colab notebook
                                 </span>
@@ -142,7 +161,7 @@
                                 <h1>Heart Disease Analysis Interactive Dashboard</h1>
                         </div>
                         <div class="pb-5">
-                            <p>Tautan berikut mengarahkan Anda ke Looker Dashboard interaktif tempat Anda dapat menjelajahi visualisasi dan wawasan yang diperoleh dari data: <a href="https://lookerstudio.google.com/reporting/34671e6c-5614-4230-ac04-46d095746aa6" target="_blank">
+                            <p>Tautan berikut mengarahkan Anda ke Looker Dashboard interaktif tempat Anda dapat menjelajahi visualisasi dan wawasan yang diperoleh dari data: <a href="https://lookerstudio.google.com/reporting/6a013fb6-862e-4ba7-930d-90e161160fbd" target="_blank">
                                 <span class="text-primary hover:underline">
                                     Looker Dashboard
                                 </span>
@@ -249,5 +268,30 @@
         </footer>
         <!-- Footer End -->
     <script src="dist/js/script.js"></script>
+    <!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+<!-- Custom JS for Carousel -->
+<script>
+    const slides = document.querySelectorAll('.carousel-slide');
+    let currentIndex = 0;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
+        });
+    }
+
+    function navigateCarousel(direction) {
+        currentIndex = (currentIndex + direction + slides.length) % slides.length;
+        showSlide(currentIndex);
+    }
+</script>
 </body>
 </html>
